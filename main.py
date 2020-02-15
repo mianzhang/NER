@@ -170,24 +170,24 @@ def main(conf):
             (i, conf.epochs, epoch_loss, end_time - start_time)
         )
 
-        precision, recall, f_score = evaluate(tagger, dev_samples, conf)
+        dev_precision, dev_recall, dev_f_score = evaluate(tagger, dev_samples, conf)
         logger.info(
             '[Dev set] [precision %f] [recall %f] [fscore %f]' %
-            (precision, recall, f_score)
+            (dev_precision, dev_recall, dev_f_score)
         )
-        precision, recall, f_score = evaluate(tagger, test_samples, conf)
+        test_precision, test_recall, test_f_score = evaluate(tagger, test_samples, conf)
         logger.info(
             '[test set] [precision %f] [recall %f] [fscore %f]' %
-            (precision, recall, f_score))
+            (test_precision, test_recall, test_f_score))
         logger.info("")
 
-        if f_score > max_f_score:
+        if dev_f_score > max_f_score:
+            max_f_score = dev_f_score
             torch.save({'model_state_dict': tagger.state_dict(),
                         'optimizer_state_dict': opt.state_dict(),
                         'max_f_score': max_f_score,
                         'config': conf
                         }, model_file)
-            max_f_score = f_score
             logger.info('Save the best model.')
 
 
