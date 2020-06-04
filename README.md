@@ -29,11 +29,6 @@ You can run the whole process very easily. Take the conll2003 corpus for example
 
 ## Performance Comparision
 
--|Dataset|Accuracy
-:-:|:-:|:-:
-Original|R8|97.07%
-This Implementation|R8|96.21%
-
 -|Dataset|F1
 :-:|:-:|:-:
 Original|conll2003|91.62%
