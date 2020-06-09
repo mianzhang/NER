@@ -1,4 +1,4 @@
-# NER
+# NERToolkit
 A simple NER tagger.
 ## Running
 You can run the whole process very easily. Take the conll2003 corpus for example,
